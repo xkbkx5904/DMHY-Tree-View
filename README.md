@@ -4,6 +4,8 @@
 
 将动漫花园的文件列表转换为树状视图，支持搜索、智能折叠等功能。
 
+本项目基于 [TautCony 的原始脚本](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)，在其基础上进行了重构和功能增强。
+
 ## 功能特性
 
 - 🌲 树状文件列表显示
@@ -55,10 +57,8 @@
 - 改进文件大小显示
 - 优化界面布局和样式
 
-## 贡献
+## 致谢
 
-欢迎提交 Issue 和 Pull Request！
-
-## 许可证
-
-本项目采用 [GPL-3.0](LICENSE) 许可证。
+- [TautCony](https://greasyfork.org/zh-CN/users/44063-tautcony) - 原始脚本作者
+- [jstree](https://www.jstree.com/) - 树状视图库
+- [jQuery](https://jquery.com/) - JavaScript 库
