@@ -2,7 +2,7 @@
 
 [![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)
 
-将动漫花园的文件列表转换为树状视图，支持搜索、智能折叠等功能。
+将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能。
 
 本项目基于 [TautCony 的原始脚本](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)，在其基础上进行了重构和功能增强。
 
