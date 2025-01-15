@@ -4,8 +4,8 @@
 // @name:en      DMHY Tree View
 // @namespace    https://github.com/xkbkx5904/dmhy-tree-view
 // @version      0.4.0
-// @description  将动漫花园的文件列表转换为树状视图，支持搜索、智能折叠等功能
-// @description:zh-CN  将动漫花园的文件列表转换为树状视图，支持搜索、智能折叠等功能
+// @description  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
+// @description:zh-CN  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
 // @description:en  Convert DMHY file list into a tree view with search and smart collapse features
 // @author       xkbkx5904
 // @license      GPL-3.0
