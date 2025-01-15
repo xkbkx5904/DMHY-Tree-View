@@ -1,6 +1,6 @@
 # DMHY Tree View 动漫花园树状显示
 
-[![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)
+[![Greasy Fork]([https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view](https://greasyfork.org/zh-CN/scripts/523875-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA))
 
 将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能。
 
@@ -18,12 +18,12 @@
 
 ### 通过 Greasy Fork 安装（推荐）
 1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 或其他用户脚本管理器
-2. 访问 [Greasy Fork 页面](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)
+2. 访问 [Greasy Fork 页面]([https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view](https://greasyfork.org/zh-CN/scripts/523875-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA))
 3. 点击"安装"按钮
 
 ### 通过 GitHub 安装
 1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 或其他用户脚本管理器
-2. 访问 [Releases](https://github.com/xkbkx5904/dmhy-tree-view/releases) 页面
+2. 访问 [Releases]([https://github.com/xkbkx5904/dmhy-tree-view/releases](https://github.com/xkbkx5904/DMHY-Tree-View/blob/main/dmhy-tree-view.user.js)) 页面
 3. 下载最新版本的 `dmhy-tree-view.user.js`
 4. 将文件拖拽到浏览器中
 
