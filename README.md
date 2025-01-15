@@ -1,6 +1,7 @@
 # DMHY Tree View 动漫花园树状显示
 
-[![Greasy Fork]([https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view](https://greasyfork.org/zh-CN/scripts/523875-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA))
+[![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/523875-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA)
+
 
 将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能。
 
