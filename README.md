@@ -1,7 +1,5 @@
 # DMHY Tree View 动漫花园树状显示
 
-[![GitHub license](https://img.shields.io/github/license/xkbkx5904/dmhy-tree-view)](https://github.com/xkbkx5904/dmhy-tree-view/blob/main/LICENSE)
-[![GitHub release](https://img.shields.io/github/v/release/xkbkx5904/dmhy-tree-view)](https://github.com/xkbkx5904/dmhy-tree-view/releases)
 [![Greasy Fork](https://img.shields.io/badge/Greasy%20Fork-install-green)](https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view)
 
 将动漫花园的文件列表转换为树状视图，支持搜索、智能折叠等功能。
