@@ -15,19 +15,6 @@
 - 📊 文件夹大小统计
 - 📋 右键复制文件名
 
-## 安装
-
-### 通过 Greasy Fork 安装（推荐）
-1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 或其他用户脚本管理器
-2. 访问 [Greasy Fork 页面]([https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view](https://greasyfork.org/zh-CN/scripts/523875-%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA))
-3. 点击"安装"按钮
-
-### 通过 GitHub 安装
-1. 安装 [Tampermonkey](https://www.tampermonkey.net/) 或其他用户脚本管理器
-2. 访问 [Releases]([https://github.com/xkbkx5904/dmhy-tree-view/releases](https://github.com/xkbkx5904/DMHY-Tree-View/blob/main/dmhy-tree-view.user.js)) 页面
-3. 下载最新版本的 `dmhy-tree-view.user.js`
-4. 将文件拖拽到浏览器中
-
 ## 使用说明
 
 ### 智能展开模式
@@ -44,11 +31,6 @@
 - 展开/折叠：一键控制所有节点
 - 右键菜单：快速复制文件名
 - 文件夹大小：自动计算并显示
-
-## 兼容性
-
-- ✅ 支持主流浏览器
-- ✅ 适配动漫花园官方站点 (share.dmhy.org)
 
 ## 更新日志
 
