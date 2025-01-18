@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name         动漫花园树状显示
-// @name:zh-CN   动漫花园树状显示
+// @name         动漫花园文件列表树状显示
+// @name:zh-CN   动漫花园文件列表树状显示
 // @name:en      DMHY Tree View
 // @namespace    https://github.com/xkbkx5904/dmhy-tree-view
 // @version      0.5.1
@@ -26,6 +26,10 @@
 // ==/UserScript==
 
 /* 更新日志
+ * v0.5.2
+ * - 修复了当文件无法提取到文件名时，文件大小被识别为文件名的问题
+ * - 修复了智能展开模式下，单层级目录没有自动打开的问题
+ *
  * v0.5.1
  * - 修复智能模式下单层目录展开/折叠的问题
  * 
