@@ -375,18 +375,31 @@ function checkTreeDepth(tree) {
     const pattern = /^(.+?) (\d+(?:\.\d+)?[TGMK]?B(?:ytes)?)$/;
  
     // 解析文件列表
+    let unnamedCounter = 1;  // 添加计数器用于区分未命名文件
+
     $(".file_list:first > ul li").each(function() {
         const text = $(this).text().trim();
         const line = text.replace(/\t+/i, "\t").split("\t");
  
         if (line.length === 2) {
+            // 标准格式：文件名和大小被制表符分隔
             data.insert(line[0].split("/"), line[1]);
         } else if (line.length === 1) {
+            // 尝试解析可能的文件名和大小格式
             const match = pattern.exec(text);
             if (match) {
+                // 成功匹配到文件名和大小
                 data.insert(match[1].split("/"), match[2]);
             } else {
-                data.insert(line[0].split("/"), "");
+                // 检查是否只是一个文件大小
+                const sizeMatch = /^\d+(?:\.\d+)?[TGMK]?B(?:ytes)?$/.test(text);
+                if (sizeMatch) {
+                    // 如果只是文件大小，使用带编号的占位符作为文件名
+                    data.insert([`unknown (${unnamedCounter++})`], text);
+                } else {
+                    // 如果不是文件大小，则视为纯文件名
+                    data.insert(text.split("/"), "");
+                }
             }
         }
     });
@@ -442,13 +455,16 @@ function checkTreeDepth(tree) {
         if (isSmartMode) {
             const treeDepth = checkTreeDepth(tree);
             
-            // 只在树深度大于1时执行智能展开
             if (treeDepth > 1) {
+                // 多层目录时执行智能展开
                 const firstFork = findFirstForkNode(tree);
                 if (firstFork) {
                     const pathToFork = getPathToNode(tree, firstFork);
                     pathToFork.forEach(nodeId => tree.open_node(nodeId));
                 }
+            } else {
+                // 单层目录时全部展开
+                tree.open_all();
             }
         }
     });
@@ -472,15 +488,19 @@ function checkTreeDepth(tree) {
             isExpanded = !isExpanded;
             const treeDepth = checkTreeDepth(tree);
             
-            if (isSmartMode && treeDepth > 1) {
-                // 多层目录时使用智能模式
+            if (isSmartMode) {
                 if (isExpanded) {
                     tree.open_all();
                 } else {
-                    smartCollapse(tree, treeDepth);
+                    if (treeDepth > 1) {
+                        // 多层目录时使用智能折叠
+                        smartCollapse(tree, treeDepth);
+                    } else {
+                        // 单层目录时全部折叠
+                        tree.close_all();
+                    }
                 }
             } else {
-                // 单层目录或非智能模式时使用普通模式
                 if (isExpanded) {
                     tree.open_all();
                 } else {
