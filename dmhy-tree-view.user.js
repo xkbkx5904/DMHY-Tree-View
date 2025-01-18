@@ -3,7 +3,7 @@
 // @name:zh-CN   动漫花园树状显示
 // @name:en      DMHY Tree View
 // @namespace    https://github.com/xkbkx5904/dmhy-tree-view
-// @version      0.5.0
+// @version      0.5.1
 // @description  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
 // @description:zh-CN  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
 // @description:en  Convert DMHY file list into a tree view with search and smart collapse features
@@ -21,9 +21,14 @@
 // @run-at       document-end
 // @originalAuthor TautCony
 // @originalURL  https://greasyfork.org/zh-CN/scripts/26430-dmhy-tree-view
+// @downloadURL https://update.greasyfork.org/scripts/523875/%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA.user.js
+// @updateURL https://update.greasyfork.org/scripts/523875/%E5%8A%A8%E6%BC%AB%E8%8A%B1%E5%9B%AD%E6%A0%91%E7%8A%B6%E6%98%BE%E7%A4%BA.meta.js
 // ==/UserScript==
 
 /* 更新日志
+ * v0.5.1
+ * - 修复智能模式下单层目录展开/折叠的问题
+ * 
  * v0.5.0
  * - 添加文件名和大小排序功能
  * - 优化搜索性能
@@ -318,10 +323,16 @@ function getFirstForkInfo(tree) {
 }
  
 // 智能折叠：只折叠分叉点以下的节点
-function smartCollapse(tree) {
+function smartCollapse(tree, treeDepth) {
+    // 如果是单层目录，直接使用普通折叠
+    if (treeDepth <= 1) {
+        tree.close_all();
+        return;
+    }
+    
     const forkInfo = getFirstForkInfo(tree);
     if (!forkInfo) return;
- 
+
     // 获取所有打开的节点
     const openNodes = tree.get_json('#', { flat: true })
         .filter(node => tree.is_open(node.id))
@@ -333,6 +344,21 @@ function smartCollapse(tree) {
             tree.close_node(nodeId);
         }
     });
+}
+ 
+// 检查文件树的最大层级
+function checkTreeDepth(tree) {
+    const getNodeDepth = (nodeId, currentDepth = 0) => {
+        const node = tree.get_node(nodeId);
+        // 如果节点不存在，或者是文件节点（没有子节点），返回当前深度
+        if (!node || !node.children || node.children.length === 0) {
+            return currentDepth - 1; // 文件节点不计入深度
+        }
+        return Math.max(...node.children.map(childId => 
+            getNodeDepth(childId, currentDepth + 1)
+        ));
+    };
+    return Math.max(0, getNodeDepth('#'));
 }
  
 // 主程序入口
@@ -410,10 +436,15 @@ function smartCollapse(tree) {
         const isSmartMode = localStorage.getItem('dmhy_smart_mode') !== 'false';
         
         if (isSmartMode) {
-            const firstFork = findFirstForkNode(tree);
-            if (firstFork) {
-                const pathToFork = getPathToNode(tree, firstFork);
-                pathToFork.forEach(nodeId => tree.open_node(nodeId));
+            const treeDepth = checkTreeDepth(tree);
+            
+            // 只在树深度大于1时执行智能展开
+            if (treeDepth > 1) {
+                const firstFork = findFirstForkNode(tree);
+                if (firstFork) {
+                    const pathToFork = getPathToNode(tree, firstFork);
+                    pathToFork.forEach(nodeId => tree.open_node(nodeId));
+                }
             }
         }
     });
@@ -435,14 +466,17 @@ function smartCollapse(tree) {
         // 2. 绑定展开/折叠按钮事件
         $("#switch").click(function() {
             isExpanded = !isExpanded;
+            const treeDepth = checkTreeDepth(tree);
             
-            if (isSmartMode) {
+            if (isSmartMode && treeDepth > 1) {
+                // 多层目录时使用智能模式
                 if (isExpanded) {
                     tree.open_all();
                 } else {
-                    smartCollapse(tree);
+                    smartCollapse(tree, treeDepth);
                 }
             } else {
+                // 单层目录或非智能模式时使用普通模式
                 if (isExpanded) {
                     tree.open_all();
                 } else {
