@@ -3,7 +3,7 @@
 // @name:zh-CN   动漫花园文件列表树状显示
 // @name:en      DMHY Tree View
 // @namespace    https://github.com/xkbkx5904/dmhy-tree-view
-// @version      0.5.2
+// @version      0.5.3
 // @description  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
 // @description:zh-CN  将动漫花园的文件列表转换为树状视图，支持搜索、智能展开等功能
 // @description:en  Convert DMHY file list into a tree view with search and smart collapse features
@@ -26,6 +26,9 @@
 // ==/UserScript==
 
 /* 更新日志
+ * v0.5.3
+ * - 刚刚更新了日志但是代码复制了旧版本的，幽默了一下，更新版本号从新推送一下代码
+ *
  * v0.5.2
  * - 修复了当文件无法提取到文件名时，文件大小被识别为文件名的问题
  * - 修复了智能展开模式下，单层级目录没有自动打开的问题
