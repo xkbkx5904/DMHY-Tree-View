@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         动漫花园文件列表树状显示
+// @name         动漫花园文件树状显示
 // @name:zh-CN   动漫花园文件列表树状显示
 // @name:en      DMHY Tree View
 // @namespace    https://github.com/xkbkx5904/dmhy-tree-view
